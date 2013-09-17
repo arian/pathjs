@@ -54,6 +54,9 @@ var Path = {
     },
     'match': function (path, parameterize) {
         var params = {}, route = null, possible_routes, slice, i, j, compare;
+        if (!Path.history.supported && Path.history.fallback && path.charAt(0) != '#') {
+            path = '#' + path;
+        }
         for (route in Path.routes.defined) {
             if (route !== null && route !== undefined) {
                 route = Path.routes.defined[route];
