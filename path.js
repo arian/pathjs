@@ -190,3 +190,7 @@ Path.core.route.prototype = {
         }
     }
 };
+
+if (typeof module != 'undefined') {
+    module.exports = Path;
+}
