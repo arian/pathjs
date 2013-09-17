@@ -93,7 +93,7 @@ var Path = {
             if (Path.routes.previous) {
                 previous_route = Path.match(Path.routes.previous);
                 if (previous_route !== null && previous_route.do_exit !== null) {
-                    previous_route.do_exit();
+                    previous_route.do_exit(matched_route);
                 }
             }
 
