@@ -175,7 +175,7 @@ Path.core.route.prototype = {
         //for (i = 0; i < parts.length; i++) {
         //    options.push(options[options.length - 1] + parts[i]);
         //}
-        return this.path;
+        return [this.path];
     },
     'run': function () {
         var halt_execution = false, i, result, previous;
