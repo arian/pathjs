@@ -1,0 +1,32 @@
+{
+  "name": "sym-router",
+  "version": "0.0.0",
+  "description": "Pushstate and hash router and history manager",
+  "main": "path.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "mocha tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/arian/pathjs.git"
+  },
+  "keywords": [
+    "router",
+    "history",
+    "html5",
+    "pushstate",
+    "hash"
+  ],
+  "author": "Arian Stolwijk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arian/pathjs/issues"
+  },
+  "devDependencies": {
+    "mocha": "~1.13.0",
+    "expect.js": "~0.2.0"
+  }
+}
