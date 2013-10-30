@@ -17,7 +17,7 @@ var Path = {
     },
 
     open: function(path) {
-        router.open(path);
+        historie.open(path);
         return this;
     },
 
