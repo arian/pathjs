@@ -95,4 +95,15 @@ describe('Router', function() {
         expect(router.match('#/bar/31')).to.be.ok();
     });
 
+    it('should call rescue functions if no route is found', function() {
+        var router = new Router();
+        var spy1 = createSpy(), spy2 = createSpy();
+        router.rescue(spy1).rescue(spy2);
+        router.dispatch('/yo');
+        expect(spy1.callCount).to.be(1);
+        expect(spy2.callCount).to.be(1);
+        expect(spy1.args[0][0]).to.equal('/yo');
+        expect(spy2.args[0][0]).to.equal('/yo');
+    });
+
 });

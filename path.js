@@ -21,6 +21,11 @@ var Path = {
         return this;
     },
 
+    rescue: function(fn) {
+        router.rescue(fn);
+        return this;
+    },
+
     listen: function() {
         historie.listen(function(path) {
             router.dispatch(path);

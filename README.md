@@ -24,22 +24,27 @@ npm install sym-router
 
     var Path = require('sym-router');
 
-    function clearPanel(){
+    function clearPanel() {
         // You can put some code in here to do fancy DOM transitions,
         // such as fade-out or slide-in.
     }
 
-    Path.map("/users").to(function(){
+    Path.map("/users").to(function() {
         alert("Users!");
     });
 
-    Path.map("/comments").to(function(){
+    Path.map("/comments").to(function() {
         alert("Comments!");
     }).exit(clearPanel);
 
-    Path.map("/posts").to(function(){
-        alert("Posts!");
+    Path.map("/post/:id").to(function(params) {
+        alert("Post " + params.id + "!");
     }).exit(clearPanel);
+
+    // if there is no matching route
+    Path.rescue(function(path) {
+        alert("No route round for " + path);
+    });
 
     Path.listen();
 
