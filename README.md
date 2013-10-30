@@ -45,6 +45,15 @@ npm install sym-router
 
 # Running Tests
 
-To run the tests, use `npm test` to test the routing and routes. For the actual
-browser history, run `python -m SimpleHTTPServer` and open the html files in
+Make sure all dependencies are installed first:
+
+```bash
+npm install
+```
+
+To run the tests, use `npm test` to test the routing and routes.
+For the actual browser history tests, build the JS files with:
+`make` and run `python -m SimpleHTTPServer`. Open the html files in
 `http://10.0.2.2:8000/tests/browser`. Everything should go to green eventually.
+
+If you're on Windows, just run the commands in the Makefile manually.
