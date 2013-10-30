@@ -1,6 +1,6 @@
 {
   "name": "sym-router",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Pushstate and hash router and history manager",
   "main": "path.js",
   "directories": {
