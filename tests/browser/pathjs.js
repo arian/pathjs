@@ -17,7 +17,7 @@ pathjs.map('/foo/:id').to(function(params, previous) {
     statusElement.innerHTML += 'enter - ' + this._path + ' = ' + params.id + (previous ? ' from ' + previous._path : '') + '<br>';
     paths.push({enter: true, path: this._path, params: params});
 }).exit(function(params, next) {
-    statusElement.innerHTML += 'exit - /foo/ for ' + next._path + '<br>';
+    statusElement.innerHTML += 'exit - /foo/' + (next ? ' for ' + next._path : '') + '<br>';
     paths.push({exit: true, path: this._path, params: params});
 });
 
@@ -31,6 +31,11 @@ pathjs.map(root).to(function() {
     paths.push({enter: true, path: this._path});
 });
 
+pathjs.rescue(function(path) {
+    statusElement.innerHTML += 'could not route ' + path + '<br>';
+    paths.push({rescue: true, path: path});
+});
+
 pathjs.listen();
 
 setTimeout(function() {
@@ -39,6 +44,14 @@ setTimeout(function() {
 
 setTimeout(function() {
     pathjs.open('/bar/66');
+}, ++delay * scale);
+
+setTimeout(function() {
+    history.back();
+}, ++delay * scale);
+
+setTimeout(function() {
+    pathjs.open('/wtos');
 }, ++delay * scale);
 
 setTimeout(function() {
@@ -51,6 +64,9 @@ setTimeout(function() {
         {enter: true, path: '/foo/:id', params: {id: '31'}},
         {exit: true, path: '/foo/:id', params: {id: '31'}},
         {enter: true, path: '/bar/:id', params: {id: '66'}},
+        {enter: true, path: '/foo/:id', params: {id: '31'}},
+        {exit: true, path: '/foo/:id', params: {id: '31'}},
+        {rescue: true, path: '/wtos'},
         {enter: true, path: '/tests/browser/pathjs.html'}
     ]);
     statusElement.innerHTML += 'done<br>';
