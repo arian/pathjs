@@ -1,34 +1,38 @@
 "use strict";
 
-var Router = require('./lib/router');
+var Routes = require('./lib/routes');
 var History = require('./lib/history');
 
-var router = new Router();
+var routes = new Routes();
 // historie, instead of history for jshint, and not overwrite browser globals
 var historie = new History();
 
 var Path = {
 
-    router: router,
+    routes: routes,
     history: historie,
 
     map: function(path) {
-        return router.map(path);
+        return routes.map(path);
     },
-
+	
+	match: function(path) {
+        return routes.match(path);
+    },
+	
     open: function(path) {
         historie.open(path);
         return this;
     },
 
     rescue: function(fn) {
-        router.rescue(fn);
+        routes.rescue(fn);
         return this;
     },
 
     listen: function() {
         historie.listen(function(path) {
-            router.dispatch(path);
+            routes.dispatch(path);
         });
         return this;
     }
