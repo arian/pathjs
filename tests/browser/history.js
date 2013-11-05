@@ -19,11 +19,16 @@ function run(pushState) {
     historie.hasPushState = !!pushState;
 
     var paths = [];
+    var calls = 0;
     var i = 1;
 
     var detach = historie.listen(function(path) {
         statusElement.innerHTML += path + '<br>';
         paths.push(path);
+    });
+
+    var ignore = historie.listen(function() {
+        calls++;
     });
 
     setTimeout(function() {
@@ -43,11 +48,14 @@ function run(pushState) {
 
     setTimeout(function() {
         expect(paths.shift()).to.equal('/bar');
+        ignore();
+        expect(calls).to.equal(3);
         historie.open(root);
     }, i++ * scale);
 
     setTimeout(function() {
         expect(paths.shift()).to.equal(root);
+        expect(calls).to.equal(3);
         detach();
     }, i++ * scale);
 
