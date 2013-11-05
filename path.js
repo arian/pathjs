@@ -16,6 +16,10 @@ var Path = {
         return router.map(path);
     },
 
+    match: function(path) {
+        return router.match(path);
+    },
+
     open: function(path) {
         historie.open(path);
         return this;
