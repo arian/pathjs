@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/arian/pathjs.git"
+    "url": "git://github.com/arian/sym-router.git"
   },
   "keywords": [
     "router",
@@ -23,7 +23,7 @@
   "author": "Arian Stolwijk",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/arian/pathjs/issues"
+    "url": "https://github.com/arian/sym-router/issues"
   },
   "devDependencies": {
     "mocha": "~1.13.0",
