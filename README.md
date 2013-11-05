@@ -22,31 +22,33 @@ npm install sym-router
 
 # Using sym-router - A Brief Example
 
-    var router = require('sym-router');
+```js
+var router = require('sym-router');
 
-    function clearPanel() {
-        // You can put some code in here to do fancy DOM transitions,
-        // such as fade-out or slide-in.
-    }
+function clearPanel() {
+    // You can put some code in here to do fancy DOM transitions,
+    // such as fade-out or slide-in.
+}
 
-    router.map("/users").to(function() {
-        alert("Users!");
-    });
+router.map("/users").to(function() {
+    alert("Users!");
+});
 
-    router.map("/comments").to(function() {
-        alert("Comments!");
-    }).exit(clearPanel);
+router.map("/comments").to(function() {
+    alert("Comments!");
+}).exit(clearPanel);
 
-    router.map("/post/:id").to(function(params) {
-        alert("Post " + params.id + "!");
-    }).exit(clearPanel);
+router.map("/post/:id").to(function(params) {
+    alert("Post " + params.id + "!");
+}).exit(clearPanel);
 
-    // if there is no matching route
-    router.rescue(function(path) {
-        alert("No route round for " + path);
-    });
+// if there is no matching route
+router.rescue(function(path) {
+    alert("No route round for " + path);
+});
 
-    router.listen();
+router.listen();
+```
 
 # Running Tests
 
